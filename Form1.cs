@@ -306,5 +306,10 @@ namespace CodeEditor
         {
             fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.Custom;
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
