@@ -196,5 +196,45 @@ namespace CodeEditor
         {
             fastColoredTextBox1.ShowReplaceDialog();
         }
+
+        private void cToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.CSharp;
+        }
+
+        private void vBToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.VB;
+        }
+
+        private void hTMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.HTML;
+        }
+
+        private void pHPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.PHP;
+        }
+
+        private void javascriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.JS;
+        }
+
+        private void sQLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.SQL;
+        }
+
+        private void lUAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.Lua;
+        }
+
+        private void gramsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            fastColoredTextBox1.Language = FastColoredTextBoxNS.Language.Custom;
+        }
     }
 }
