@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
+using Microsoft.CSharp;
+using System.CodeDom.Compiler;
 
 namespace CodeEditor
 {
@@ -319,6 +321,52 @@ namespace CodeEditor
                 HTMLPreview htmlPreview = new HTMLPreview(fastColoredTextBox1.Text);
                 htmlPreview.Show();
             }
+
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.CSharp) // if language is CSharp
+            {
+                SaveFileDialog sf = new SaveFileDialog();
+                sf.Filter = "Executable File|*.exe";
+                string OutPath = "?.exe";
+                if (sf.ShowDialog() == DialogResult.OK)
+                {
+                    OutPath = sf.FileName;
+                }
+                //compile code:
+                //create c# code compiler
+                CSharpCodeProvider codeProvider = new CSharpCodeProvider();
+                //create new parameters for compilation and add references(libs) to compiled app
+                CompilerParameters parameters = new CompilerParameters(new string[] { "System.dll" });
+                //is compiled code will be executable?(.exe)
+                parameters.GenerateExecutable = true;
+                //output path
+                parameters.OutputAssembly = OutPath;
+                //code sources to compile
+                string[] sources = { fastColoredTextBox1.Text };
+                //results of compilation
+                CompilerResults results = codeProvider.CompileAssemblyFromSource(parameters, sources);
+
+                //if has errors
+                if (results.Errors.Count > 0)
+                {
+                    string errsText = "";
+                    foreach (CompilerError CompErr in results.Errors)
+                    {
+                        errsText = "(" + CompErr.ErrorNumber +
+                                    ")Line " + CompErr.Line +
+                                    ",Column " + CompErr.Column +
+                                    ":" + CompErr.ErrorText + "" +
+                                    Environment.NewLine;
+                    }
+                    //show error message
+                    MessageBox.Show(errsText, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //run compiled app
+                    System.Diagnostics.Process.Start(OutPath);
+                }
+            }
+
             else
             {
                 MessageBox.Show("Cannot run this file");
