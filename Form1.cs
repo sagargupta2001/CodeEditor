@@ -311,5 +311,18 @@ namespace CodeEditor
         {
 
         }
+
+        private void runToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                HTMLPreview htmlPreview = new HTMLPreview(fastColoredTextBox1.Text);
+                htmlPreview.Show();
+            }
+            else
+            {
+                MessageBox.Show("Cannot run this file");
+            }
+        }
     }
 }
