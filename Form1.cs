@@ -42,7 +42,42 @@ namespace CodeEditor
             // create new open file dialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
             // open file dialog files extension filter
-            openFileDialog.Filter = "Text File|*.txt|Any File|*.*";
+            if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.CSharp)
+            {
+                openFileDialog.Filter = "C# File|*.cs|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.VB)
+            {
+                openFileDialog.Filter = "VB File|*.vb|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                openFileDialog.Filter = "HTML File|*.html|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.PHP)
+            {
+                openFileDialog.Filter = "PHP File|*.php|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.XML)
+            {
+                openFileDialog.Filter = "XML File|*.xml|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.JS)
+            {
+                openFileDialog.Filter = "JS File|*.js|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.Lua)
+            {
+                openFileDialog.Filter = "Lua File|*.lua|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.Custom)
+            {
+                openFileDialog.Filter = "C# File|*.cs|Any File|*.*";
+            }
+            else
+            {
+                openFileDialog.Filter = "Any File|*.*";
+            }
             // if after showing dialog, clicked ok
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -73,7 +108,7 @@ namespace CodeEditor
             } 
             catch 
             {
-                OpenDlg();                
+                SaveDlg();                
             }
         }
 
@@ -83,7 +118,42 @@ namespace CodeEditor
             // new save file dialog
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             // filter 
-            saveFileDialog.Filter = "Text File|*.txt|Any File|*.*";
+            if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.CSharp)
+            {
+                saveFileDialog.Filter = "C# File|*.cs|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.VB)
+            {
+                saveFileDialog.Filter = "VB File|*.vb|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.HTML)
+            {
+                saveFileDialog.Filter = "HTML File|*.html|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.PHP)
+            {
+                saveFileDialog.Filter = "PHP File|*.php|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.XML)
+            {
+                saveFileDialog.Filter = "XML File|*.xml|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.JS)
+            {
+                saveFileDialog.Filter = "JS File|*.js|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.Lua)
+            {
+                saveFileDialog.Filter = "Lua File|*.lua|Any File|*.*";
+            }
+            else if (fastColoredTextBox1.Language == FastColoredTextBoxNS.Language.Custom)
+            {
+                saveFileDialog.Filter = "C# File|*.cs|Any File|*.*";
+            }
+            else
+            {
+                saveFileDialog.Filter = "Any File|*.*";
+            }
             // if after showing dialog, user clicked ok
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
